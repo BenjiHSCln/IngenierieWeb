@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS `blog`;
+CREATE DATABASE `blog`;
+
+use `blog`;
+
+CREATE TABLE `blog`.`posts`  (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT UNSIGNED NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    unique slug VARCHAR(255) NOT NULL,
+    views INT UNSIGNED NOT NULL DEFAULT 0,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
